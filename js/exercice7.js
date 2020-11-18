@@ -38,6 +38,11 @@ imageManager.execute = function (key) {
     return methodName.apply(imageManager)
 }
 
-setInterval(function () {
-    // add a random move
-}, 500)
+    setInterval(function (timer) {
+        seconds = parseInt(timer % 5);
+    
+        if (--timer < 0) {
+            window.clearInterval(timerInterval);
+            window.setTimeout(() => startTimer(duration, display), 500);
+        }
+      }, 500);
