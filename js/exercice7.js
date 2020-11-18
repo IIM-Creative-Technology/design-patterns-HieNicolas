@@ -38,10 +38,8 @@ imageManager.execute = function (key) {
     return methodName.apply(imageManager)
 }
 
-    setInterval(function (timer) {
-        seconds = parseInt(timer % 5);
-    
-        if (--timer < 0) {
+setInterval(function (timer) {
+        if (timer < 0) {
             window.clearInterval(timerInterval);
             window.setTimeout(() => startTimer(duration, display), 500);
         }
