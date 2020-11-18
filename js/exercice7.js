@@ -38,9 +38,14 @@ imageManager.execute = function (key) {
     return methodName.apply(imageManager)
 }
 
-setInterval(function (timer) {
-        if (timer < 0) {
-            window.clearInterval(timerInterval);
-            window.setTimeout(() => startTimer(duration, display), 500);
-        }
-      }, 500);
+let randomMethodKey, methodToExecute
+
+const methods = [
+    "ArrowUp",  "ArrowDown", "ArrowLeft", "ArrowRight"
+]
+
+setInterval(function () {
+    randomMethodKey = Math.floor((Math.random() * 4))
+    methodToExecute = methods[randomMethodKey]
+    imageManager.execute(methodToExecute)
+}, 500);
